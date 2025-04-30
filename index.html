@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,9 +104,8 @@
   <!-- Password Screen -->
   <div id="passwordContainer">
     <h1>Enter the Password</h1>
-    <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" aria-label="Enter password" />
+    <input type="password" id="passwordInput" class="password-input" placeholder="Enter password" />
     <button class="submit-btn" onclick="checkPassword()">Submit</button>
-    <p id="errorMessage" class="error-message">Incorrect password. Please try again.</p>
   </div>
 
   <!-- Fullscreen Hub -->
@@ -114,22 +114,19 @@
   </div>
 
   <script>
+    const correctPassword = '12345'; // Set your correct password here
     const passwordInput = document.getElementById('passwordInput');
     const passwordContainer = document.getElementById('passwordContainer');
     const hubContainer = document.getElementById('hubContainer');
-    const errorMessage = document.getElementById('errorMessage');
 
     // Function to check the password
     function checkPassword() {
       const enteredPassword = passwordInput.value;
-
-      // Simulate password validation
-      const correctPassword = '12345';
       if (enteredPassword === correctPassword) {
         passwordContainer.style.display = 'none';
         hubContainer.style.display = 'block';
       } else {
-        errorMessage.style.display = 'block';
+        alert('Incorrect password. Please try again.');
       }
     }
   </script>
