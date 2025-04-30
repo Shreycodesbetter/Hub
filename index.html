@@ -85,13 +85,6 @@
       background-color: #0056b3;
     }
 
-    .error-message {
-      color: red;
-      font-size: 14px;
-      margin-top: 10px;
-      display: none;
-    }
-
     /* Fullscreen Iframe */
     #hubContainer {
       display: none;
@@ -127,39 +120,17 @@
     const errorMessage = document.getElementById('errorMessage');
 
     // Function to check the password
-    async function checkPassword() {
+    function checkPassword() {
       const enteredPassword = passwordInput.value;
 
-      try {
-        // Simulated server-side password check (replace with actual API call)
-        const response = await fetch('/validate-password', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ password: enteredPassword }),
-        });
-
-        if (response.ok) {
-          const result = await response.json();
-          if (result.valid) {
-            passwordContainer.style.display = 'none';
-            hubContainer.style.display = 'block';
-          } else {
-            showErrorMessage();
-          }
-        } else {
-          showErrorMessage();
-        }
-      } catch (error) {
-        console.error('Error validating password:', error);
-        showErrorMessage();
+      // Simulate password validation
+      const correctPassword = '12345';
+      if (enteredPassword === correctPassword) {
+        passwordContainer.style.display = 'none';
+        hubContainer.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'block';
       }
-    }
-
-    // Function to show error message
-    function showErrorMessage() {
-      errorMessage.style.display = 'block';
     }
   </script>
 </body>
